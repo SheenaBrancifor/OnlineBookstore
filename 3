@@ -1,0 +1,78 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class OnlineBookstore {
+    private List<Book> books;
+
+    public OnlineBookstore() {
+        books = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+    }
+
+    public List<Book> searchByTitle(String title) {
+        List<Book> searchResults = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                searchResults.add(book);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Book> searchByAuthor(String author) {
+        List<Book> searchResults = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getAuthor().equalsIgnoreCase(author)) {
+                searchResults.add(book);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Book> searchByGenre(String genre) {
+        List<Book> searchResults = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getGenre().equalsIgnoreCase(genre)) {
+                searchResults.add(book);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Book> getAllBooks() {
+        return books;
+    }
+}
+
+public class Book {
+    private String title;
+    private String author;
+    private String genre;
+    private int year;
+
+    public Book(String title, String author, String genre, int year) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.year = year;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public int getYear() {
+        return year;
+    }
+}
